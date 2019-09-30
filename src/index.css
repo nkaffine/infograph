@@ -1,0 +1,13 @@
+* {
+    margin-left: 0;
+    padding: 0;
+}
+
+#root
+{
+    margin-left: 25%;
+}
+
+ul, li {
+    list-style: none;
+}

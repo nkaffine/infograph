@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS categories;
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    category VARCHAR(255)
+);
