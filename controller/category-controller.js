@@ -1,4 +1,5 @@
 const Category = require('../model/category');
+const {validationResult} = require('express-validator');
 
 const categoryController = {};
 
@@ -22,6 +23,24 @@ categoryController.findById = (req, res) => {
             res.json({
                 message: "Success",
                 data: quote
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({err});
+        });
+};
+
+categoryController.createCategory = (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty())
+    {
+        return res.status(422).json({ errors: errors.array() });
+    }
+    Category.createCategory(req.body.category)
+        .then(_ => {
+            res.json({
+                message: "Success"
             });
         })
         .catch(err => {

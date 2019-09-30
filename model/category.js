@@ -14,4 +14,11 @@ Category.findById = (id) => {
     );
 };
 
+Category.createCategory = (category) => {
+    return db.none(
+        `INSERT into categories(category) VALUES($1)`,
+        [category]
+    );
+};
+
 module.exports = Category;
